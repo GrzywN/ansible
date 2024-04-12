@@ -34,6 +34,11 @@
     - install
     - work-environment
 
+- name: Remove lock files to change shell to fish
+  file:
+    path: "/etc/passwd.lock"
+    state: absent
+
 - name: Change shell to fish
   ansible.builtin.user:
     name: "user"
