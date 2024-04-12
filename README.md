@@ -4,6 +4,12 @@
 
 ## Usage
 
+Git clone
+
+```bash
+git clone git@github.com:GrzywN/ansible.git ~
+```
+
 Install ansible
 
 ```bash
