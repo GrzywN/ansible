@@ -23,7 +23,10 @@
 - name: Install Nerdfonts
   become: true
   shell: |
-    wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/NerdFontsSymbolsOnly.zip && cd ~/.local/share/fonts && unzip NerdFontsSymbolsOnly.zip && rm NerdFontsSymbolsOnly.zip &&
+    wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/NerdFontsSymbolsOnly.zip &&
+    cd ~/.local/share/fonts &&
+    unzip -u NerdFontsSymbolsOnly.zip &&
+    rm NerdFontsSymbolsOnly.zip &&
     fc-cache -fv
   tags:
     - install
