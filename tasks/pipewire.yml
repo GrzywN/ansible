@@ -1,0 +1,12 @@
+- name: Install audio packages and blueman (for pipewire)
+  become: true
+  apt:
+    name:
+      - pavucontrol
+      - pipewire
+      - pipewire-pulse
+      - blueman
+  tags:
+    - install
+    - pipewire
+

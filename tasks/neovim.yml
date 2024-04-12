@@ -1,0 +1,31 @@
+- name: Add neovim ppa (ppa:neovim-ppa/unstable)
+  become: true
+  apt_repository:
+   repo: ppa:neovim-ppa/unstable
+   state: present
+   update_cache: True
+  tags:
+    - install
+    - neovim
+
+- name: Install neovim
+  become: true
+  apt:
+    name:
+      - neovim
+      - vim
+      - ripgrep
+      - fonts-jetbrains-mono
+  tags:
+    - install
+    - neovim
+
+- name: Install Nerdfonts
+  become: true
+  shell: |
+    wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/NerdFontsSymbolsOnly.zip && cd ~/.local/share/fonts && unzip NerdFontsSymbolsOnly.zip && rm NerdFontsSymbolsOnly.zip &&
+    fc-cache -fv
+  tags:
+    - install
+    - neovim
+

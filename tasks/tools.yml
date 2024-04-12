@@ -1,0 +1,38 @@
+- name: kdenlive ppa (ppa:kdenlive/kdenlive-stable)
+  become: true
+  apt_repository:
+   repo: ppa:kdenlive/kdenlive-stable
+   state: present
+   update_cache: True
+  tags:
+    - install
+    - tools
+
+- name: Install packages
+  become: true
+  apt:
+    name:
+      - firefox
+      - gimp
+      - discord
+      - telegram-desktop
+      - arandr
+      - flameshot
+      - kdenlive
+      - xclip
+      - tldr
+      - ripgrep
+  tags:
+    - install
+    - tools
+
+- name: Install flatpaks
+  ansible.builtin.shell: |
+    flatpak install flathub org.chromium.Chromium -y
+    flatpak install flathub com.axosoft.GitKraken -y
+    flatpak install flathub com.getpostman.Postman -y
+    flatpak install flathub com.spotify.Client -y
+  tags:
+    - install
+    - tools
+
