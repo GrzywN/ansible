@@ -1,5 +1,9 @@
 - name: Installing stow
-  ansible.builtin.apt: name=stow
+  become: true
+  apt:
+    name:
+      - stow
+      - zsh
   tags:
     - install
     - dotfiles
