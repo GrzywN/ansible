@@ -1,0 +1,26 @@
+- name: Install Docker
+  become: true
+  shell: |
+    sudo curl -sS https://get.docker.com | sh
+  tags:
+    - install
+    - docker
+
+- name: Add Docker group
+  become: true
+  group:
+    name: docker
+  tags:
+    - install
+    - docker
+
+- name: Add user to Docker group
+  become: true
+  user:
+    name: user
+    groups: docker
+    append: true
+  tags:
+    - install
+    - docker
+
