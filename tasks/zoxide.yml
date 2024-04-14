@@ -1,0 +1,8 @@
+- name: Install zoxide using shell script
+  become: true
+  shell: |
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash   
+  tags:
+    - install
+    - zoxide
+

@@ -19,5 +19,5 @@
     - include: tasks/dotfiles.yml
     - include: tasks/work-environment.yml
     - include: tasks/neovim.yml
-    - include: tasks/tools.yml
+    - include: tasks/zoxide.yml
 
