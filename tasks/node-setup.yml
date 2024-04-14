@@ -1,8 +1,4 @@
-- name: Install nodejs and npm
+- name: Set lts/iron for system node version
   become: true
-  apt:
-    name: ["nodejs", "npm"]
-  tags:
-    - install
-    - node
-
+  shell: |
+    echo "nvm install lts/iron" | fish
