@@ -1,4 +1,4 @@
 - name: Set lts/iron for system node version
   become: true
   shell: |
-    echo "nvm install lts/iron" | fish
+    echo "nvm install lts/iron" | bash

@@ -1,19 +1,8 @@
-- name: Add fish ppa (ppa:fish-shell/release-3
-  become: true
-  apt_repository:
-   repo: ppa:fish-shell/release-3
-   state: present
-   update_cache: True
-  tags:
-    - install
-    - work-environment
-
 - name: Install desktop environment and terminal 
   become: true
   apt:
     name:
       - alacritty
-      - fish
       - tmux
       - fzf
       - i3
@@ -30,19 +19,6 @@
   become: true
   shell: |
     curl -sS https://starship.rs/install.sh > install.sh && sh ./install.sh -y && rm ./install.sh
-  tags:
-    - install
-    - work-environment
-
-- name: Remove lock files to change shell to fish
-  file:
-    path: "/etc/passwd.lock"
-    state: absent
-
-- name: Change shell to fish
-  ansible.builtin.user:
-    name: "user"
-    shell: /usr/bin/fish
   tags:
     - install
     - work-environment
